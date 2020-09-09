@@ -1,6 +1,5 @@
 #include <iostream>
 using namespace std;
-
 #include <sys/mman.h>
 #include <sys/stat.h> // mode constants
 #include <fcntl.h> // O_* constants
@@ -17,8 +16,10 @@ int main() {
 		exit(1);
 	}
 
-	int* p_data = (int *) mmap(0, SIZE, PROT_READ, MAP_SHARED, fd, 0);
-	cout << "Consumer: mapped address for shared memory: " << p_data << endl;
+	int* p_data = (int *)
+	   mmap(0, SIZE, PROT_READ, MAP_SHARED, fd, 0);
+	cout << "Consumer: mapped address for shared memory: "
+	     << p_data << endl;
 
 	for (int i = 0; i < NUMBERS; i++) {
 		cout << p_data[i] << endl;
@@ -27,6 +28,4 @@ int main() {
 	munmap(p_data, SIZE);
 	close(fd);
 	shm_unlink(NAME);
-
-	return 0;
 }
