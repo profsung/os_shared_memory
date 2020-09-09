@@ -6,7 +6,7 @@ using namespace std;
 #include <fcntl.h> // O_* constants
 #include <unistd.h>
 
-const char* NAME = "/SHARED_MEMORY";
+const char* NAME = "SHARED_MEMORY";
 const int NUMBERS = 5;
 const int SIZE = NUMBERS * sizeof(int);
 
@@ -24,7 +24,7 @@ int main() {
 	cout << "Producer: mapped address for shared memory: " << p_data << endl;
 
 	for (int i = 0; i < NUMBERS; i++) {
-		p_data[i] = i + 100;
+		p_data[i] = i + 1000;
 	}
 
 	munmap(p_data, SIZE);

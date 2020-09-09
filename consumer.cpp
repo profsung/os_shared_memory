@@ -6,7 +6,7 @@ using namespace std;
 #include <fcntl.h> // O_* constants
 #include <unistd.h>
 
-const char* NAME = "/SHARED_MEMORY";
+const char* NAME = "SHARED_MEMORY";
 const int NUMBERS = 5;
 const int SIZE = NUMBERS * sizeof(int);
 
