@@ -28,4 +28,5 @@ int main() {
 
 	munmap(p_data, SIZE);
 	close(fd);
+	// shm_unlink(NAME); // if unlinked, other process cannot use
 }
