@@ -1,4 +1,11 @@
-#include "common_includes.h"
+#include <sys/mman.h> // shm_open
+#include <sys/stat.h> // mode constants
+#include <fcntl.h> // O_* constants
+#include <unistd.h> // fork pipe
+#include <stdlib.h> // exit()
+#include <stdio.h> // printf/scanf
+
+#include "my_defs.h"
 
 int main() {
 	int fd;
@@ -19,5 +26,5 @@ int main() {
 
 	munmap(p_data, SIZE);
 	close(fd);
-	shm_unlink(NAME);
+	shm_unlink(NAME); // shared memory is deleted
 }

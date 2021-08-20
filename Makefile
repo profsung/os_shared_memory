@@ -1,8 +1,8 @@
 p: producer.cpp
-	g++ producer.cpp -o p -lrt
+	g++ producer.cpp -lrt -o p
 
 c: consumer.cpp
-	g++ consumer.cpp -o c -lrt
+	g++ consumer.cpp -lrt -o c
 
 clean:
 	rm -f *.o p c *.zip
