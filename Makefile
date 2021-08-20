@@ -1,8 +1,8 @@
 p: producer.cpp
-	g++ producer.cpp -o p.out -lrt
+	g++ producer.cpp -o p -lrt
 
 c: consumer.cpp
-	g++ consumer.cpp -o c.out -lrt
+	g++ consumer.cpp -o c -lrt
 
 clean:
-	rm -f *.o *.out
+	rm -f *.o p c
