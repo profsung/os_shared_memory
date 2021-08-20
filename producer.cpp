@@ -1,11 +1,4 @@
-#include <sys/mman.h>
-#include <sys/stat.h> // mode constants
-#include <fcntl.h> // O_* constants
-#include <unistd.h>
-#include <iostream>
-using namespace std;
-
-#include "mydefs.h"
+#include "common_includes.h"
 
 int main() {
 	int fd = shm_open(NAME, O_CREAT | O_RDWR, 0666);
@@ -16,7 +9,7 @@ int main() {
 	int* p_data = (int *)
 	   mmap(0, SIZE, PROT_READ | PROT_WRITE, MAP_SHARED, fd, 0);
 
-	cout << "Producer has created shared memory" << endl;
+	printf("Producer has created shared memory\n");
 
 	for (int i = 0; i < NUMBERS; i++) {
 		p_data[i] = i + 1000;

@@ -1,27 +1,20 @@
-#include <sys/mman.h>
-#include <sys/stat.h> // mode constants
-#include <fcntl.h> // O_* constants
-#include <unistd.h>
-#include <iostream>
-using namespace std;
-
-#include "mydefs.h"
+#include "common_includes.h"
 
 int main() {
 	int fd;
 	for ( ; ;) {
 		fd = shm_open(NAME, O_RDONLY, 0666);
 		if (fd >= 0) break;
-		cout << "waiting for producer to create a shared memory ..." << endl;
+		printf("waiting for producer to create a shared memory ...\n");
 		sleep(1);
 	}
 
 	int* p_data = (int *)
 	   mmap(0, SIZE, PROT_READ, MAP_SHARED, fd, 0);
-	cout << "Consumer successfully opened shared memory." << endl;
+	printf("Consumer successfully opened shared memory.\n");
 
 	for (int i = 0; i < NUMBERS; i++) {
-		cout << p_data[i] << endl;
+		printf("%d\n", p_data[i]);
 	}
 
 	munmap(p_data, SIZE);
