@@ -1,5 +1,5 @@
 p: producer.cpp
-	g++ producer.cpp -lrt -o p
+	g++ producer.cpp -lrt  -o p
 
 c: consumer.cpp
 	g++ consumer.cpp -lrt -o c

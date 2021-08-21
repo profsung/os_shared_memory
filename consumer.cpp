@@ -1,7 +1,7 @@
-#include <sys/mman.h> // shm_open
+#include <sys/mman.h> // shm_open() mmap() munmap()
 #include <sys/stat.h> // mode constants
 #include <fcntl.h> // O_* constants
-#include <unistd.h> // ftruncate close
+#include <unistd.h> // ftruncate() close()
 #include <stdlib.h> // exit()
 #include <stdio.h> // printf/scanf
 
