@@ -1,7 +1,7 @@
-p: producer.cpp
-	g++ producer.cpp -lrt  -o p
+p: producer.cpp my_defs.h
+	g++ producer.cpp -lrt -o p
 
-c: consumer.cpp
+c: consumer.cpp my_defs.h
 	g++ consumer.cpp -lrt -o c
 
 clean:
