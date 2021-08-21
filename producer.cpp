@@ -1,7 +1,7 @@
 #include <sys/mman.h> // shm_open
 #include <sys/stat.h> // mode constants
 #include <fcntl.h> // O_* constants
-#include <unistd.h> // fork pipe
+#include <unistd.h> // ftruncate close
 #include <stdlib.h> // exit()
 #include <stdio.h> // printf/scanf
 
